@@ -13,8 +13,10 @@ const whatsapp = ref('');
 
 onMounted(async () => {
   data.value = await getServices()
-  $('#telefone').mask('(00) 00000-0000')
-  $('#whatsapp').mask('(00) 00000-0000')
+  const tel : any = $('#telefone')
+  tel.mask('(00) 00000-0000')
+  const whats : any = $('#whatsapp')
+  whats.mask('(00) 00000-0000')
 })
 
 function returnInstragram(ig: string) {
