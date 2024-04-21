@@ -57,16 +57,16 @@ async function inserirServicos() {
     return;
   }
 
-  // Validação do formato do telefone (opcional)
-  if (telefone.value && !/^\(\d{2}\) \d{4,5}-\d{4}$/.test(telefone.value)) {
-    Swal.fire({
-      title: 'Aviso!',
-      text: 'Por favor, insira um número de telefone válido no formato (99) 99999-9999.',
-      icon: 'warning',
-      confirmButtonText: 'Okay'
-    })
-    return;
-  }
+  // // Validação do formato do telefone (opcional)
+  // if (telefone.value && !/^\(\d{2}\) \d{4,5}-\d{4}$/.test(telefone.value)) {
+  //   Swal.fire({
+  //     title: 'Aviso!',
+  //     text: 'Por favor, insira um número de telefone válido no formato (99) 99999-9999.',
+  //     icon: 'warning',
+  //     confirmButtonText: 'Okay'
+  //   })
+  //   return;
+  // }
 
   // Criação do objeto de dados
   const dados = {
