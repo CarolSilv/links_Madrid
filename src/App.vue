@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
-import './global.d.ts';
 
 const data = ref()
 const nome = ref('');
