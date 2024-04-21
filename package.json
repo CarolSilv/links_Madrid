@@ -12,12 +12,14 @@
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
     "cors": "^2.8.5",
+    "sweetalert2": "^11.10.8",
     "vue": "^3.4.21"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/jquery": "^3.5.29",
     "@vitejs/plugin-vue": "^5.0.4",
+    "sass": "^1.75.0",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
     "vue-tsc": "^2.0.6"

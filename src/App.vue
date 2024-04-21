@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
-
+import Swal from 'sweetalert2'
+import 'sweetalert2/src/sweetalert2.scss'
 const data = ref()
 const nome = ref('');
 const telefone = ref('');
@@ -12,10 +13,11 @@ const descricao_servico = ref('');
 const whatsapp = ref('');
 
 onMounted(async () => {
+
   data.value = await getServices()
-  const tel : any = $('#telefone')
+  const tel: any = $('#telefone')
   tel.mask('(00) 00000-0000')
-  const whats : any = $('#whatsapp')
+  const whats: any = $('#whatsapp')
   whats.mask('(00) 00000-0000')
 })
 
@@ -24,25 +26,45 @@ function returnInstragram(ig: string) {
 }
 
 async function getServices() {
-  const res = await axios({
-    url: `https://links-madrid-api.vercel.app/servico/ativos`,
-    method: `GET`
-  }).catch((err) => {
-    throw new Error(err);
-  })
-  return res.data.dados
+  try {
+    const res = await axios({
+      url: `https://links-madrid-api.vercel.app/servico/ativos`,
+      method: `GET`
+    })
+    return res.data.dados
+  } catch (error: any) {
+    Swal.fire({
+      title: 'Erro!',
+      text: 'Erro para retornar os serviços.',
+      icon: 'warning',
+      confirmButtonText: 'Okay'
+    })
+    throw new Error(error);
+
+  }
+
 }
 
 async function inserirServicos() {
   // Validação dos campos obrigatórios
   if (!nome.value || !servico_prestado.value || !descricao_servico.value) {
-    alert('Por favor, preencha todos os campos obrigatórios.');
+    Swal.fire({
+      title: 'Aviso!',
+      text: 'Por favor, preencha todos os campos obrigatórios.',
+      icon: 'warning',
+      confirmButtonText: 'Okay'
+    })
     return;
   }
 
   // Validação do formato do telefone (opcional)
   if (telefone.value && !/^\(\d{2}\) \d{4,5}-\d{4}$/.test(telefone.value)) {
-    alert('Por favor, insira um número de telefone válido no formato (99) 99999-9999.');
+    Swal.fire({
+      title: 'Aviso!',
+      text: 'Por favor, insira um número de telefone válido no formato (99) 99999-9999.',
+      icon: 'warning',
+      confirmButtonText: 'Okay'
+    })
     return;
   }
 
@@ -62,10 +84,20 @@ async function inserirServicos() {
   // Envio dos dados para o backend via POST usando Axios
   try {
     await axios.post('https://links-madrid-api.vercel.app/servico', dados);
-    alert('Dados inseridos com sucesso!');
+    Swal.fire({
+      title: 'Serviço inserido com sucesso!',
+      text: 'Aguarde a aprovação do serviço, pode durar até 2 horas ⏰ ✅.',
+      icon: 'success',
+      confirmButtonText: 'Okay 🤩',
+      allowOutsideClick: false,
+      allowEscapeKey: false
+    }).then((result) => {
+      if (result.isConfirmed) {
+        location.reload()
+      }
+    })
   } catch (error) {
     console.error('Erro ao inserir os dados:', error);
-    alert('Erro ao inserir os dados. Por favor, tente novamente.');
   }
 }
 
@@ -96,7 +128,7 @@ async function inserirServicos() {
           </div>
           <br>
           <p><strong>Responsável: </strong>{{ i.nome }}</p>
-          <p v-if="i.bloco_apt"><strong>Bloco apto: </strong>{{ i.bloco_apt }}</p>
+          <p v-if="i.bloco_apto"><strong>Bloco apto: </strong>{{ i.bloco_apto }}</p>
           <p><strong>Serviço Prestado: </strong>{{ i.servico_prestado }}</p>
           <div>
             <p v-if="i.descricao"><strong>Descrição: </strong> {{ i.descricao }}</p>
