@@ -25,6 +25,10 @@ function returnInstragram(ig: string) {
   return ig.replace('@', '')
 }
 
+function returnClearNumber(number:string){
+  return number.replace(/[^0-9]/g, '');
+}
+
 async function getServices() {
   try {
     const res = await axios({
@@ -124,7 +128,7 @@ async function inserirServicos() {
             <a :href="`https://instagram.com/${returnInstragram(i.instagram)}`" target="_blank">
               <strong class="d-block text-gray-dark">{{ i.instagram }}</strong>
             </a>
-            <a v-if="i.whatsapp" :href="`https://wa.me/55${i.whatsapp}`" target="_blank">Whatsapp</a>
+            <a v-if="i.whatsapp" :href="`https://wa.me/55${returnClearNumber(i.whatsapp)}`" target="_blank">Whatsapp</a>
           </div>
           <br>
           <p><strong>Responsável: </strong>{{ i.nome }}</p>
