@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
 import Swal from 'sweetalert2'
+import { vMaska } from "maska"
 import 'sweetalert2/src/sweetalert2.scss'
 const data = ref()
 const nome = ref('');
@@ -15,17 +16,17 @@ const whatsapp = ref('');
 onMounted(async () => {
 
   data.value = await getServices()
-  const tel: any = $('#telefone')
-  tel.mask('(00) 00000-0000')
-  const whats: any = $('#whatsapp')
-  whats.mask('(00) 00000-0000')
+  // const tel: any = $('#telefone')
+  // tel.mask('(00) 00000-0000')
+  // const whats: any = $('#whatsapp')
+  // whats.mask('(00) 00000-0000')
 })
 
 function returnInstragram(ig: string) {
   return ig.replace('@', '')
 }
 
-function returnClearNumber(number:string){
+function returnClearNumber(number: string) {
   return number.replace(/[^0-9]/g, '');
 }
 
@@ -167,7 +168,7 @@ async function inserirServicos() {
                 <label class="titulo" for="telefone">Telefone
                   <span class="required">* Campo obrigatório</span>
                 </label>
-                <input v-model="telefone" v-mask="'(##) #####-####'" placeholder="(99) 99999-9999" type="text"
+                <input v-model="telefone" v-maska data-maska="(##) #####-####" placeholder="(99) 99999-9999" type="text"
                   class="form-control" id="telefone">
               </div>
             </div>
@@ -213,7 +214,7 @@ async function inserirServicos() {
                 <label class="titulo" for="whatsapp">WhatsApp
                   <span class="required">* Campo obrigatório</span>
                 </label>
-                <input v-model="whatsapp" id="whatsapp" class="form-control" v-mask="'(##) #####-####'"
+                <input v-model="whatsapp" id="whatsapp" class="form-control" v-maska data-maska="(##) #####-####"
                   placeholder="(99) 99999-9999">
               </div>
             </div>
