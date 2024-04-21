@@ -47,7 +47,7 @@ async function getServices() {
 
 async function inserirServicos() {
   // Validação dos campos obrigatórios
-  if (!nome.value || !servico_prestado.value || !descricao_servico.value) {
+  if (!nome.value || !servico_prestado.value || !descricao_servico.value || !whatsapp.value) {
     Swal.fire({
       title: 'Aviso!',
       text: 'Por favor, preencha todos os campos obrigatórios.',
@@ -152,13 +152,17 @@ async function inserirServicos() {
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="nome">Nome</label>
+                <label class="titulo" for="nome">Nome
+                  <span class="required">* Campo obrigatório</span>
+                </label>
                 <input v-model="nome" type="text" class="form-control" id="nome" placeholder="Digite o nome">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="telefone">Telefone</label>
+                <label class="titulo" for="telefone">Telefone
+                  <span class="required">* Campo obrigatório</span>
+                </label>
                 <input v-model="telefone" v-mask="'(##) #####-####'" placeholder="(99) 99999-9999" type="text"
                   class="form-control" id="telefone">
               </div>
@@ -181,7 +185,9 @@ async function inserirServicos() {
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="servico_prestado">Serviço Prestado</label>
+                <label class="titulo" for="servico_prestado">Serviço Prestado
+                  <span class="required">* Campo obrigatório</span>
+                </label>
                 <input v-model="servico_prestado" type="text" class="form-control" id="servico_prestado"
                   placeholder="Digite o serviço prestado">
               </div>
@@ -190,7 +196,8 @@ async function inserirServicos() {
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label for="descricao_servico">Descrição do Serviço</label>
+                <label class="titulo" for="descricao_servico">Descrição do Serviço
+                </label>
                 <textarea v-model="descricao_servico" class="form-control" id="descricao_servico" rows="3"
                   placeholder="Digite a descrição do serviço"></textarea>
               </div>
@@ -199,7 +206,9 @@ async function inserirServicos() {
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="whatsapp">WhatsApp</label>
+                <label class="titulo" for="whatsapp">WhatsApp
+                  <span class="required">* Campo obrigatório</span>
+                </label>
                 <input v-model="whatsapp" id="whatsapp" class="form-control" v-mask="'(##) #####-####'"
                   placeholder="(99) 99999-9999">
               </div>
@@ -222,4 +231,16 @@ async function inserirServicos() {
   </footer>
 </template>
 
-<style scoped></style>
+<style scoped>
+.titulo {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+
+.required {
+  color: red;
+  font-size: .65rem;
+  font-weight: 600;
+}
+</style>
