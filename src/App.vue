@@ -230,8 +230,7 @@ async function inserirServicos() {
 
   <footer class="py-3 footer fixed-bottom bg-light">
     <div class="container text-center">
-      <span class="text-muted">Desenvolvido por <a :href="`https://wa.me/5575988194912`" target="blank"><strong>Dende
-            Software</strong></a>.</span>
+      <span class="text-muted">Desenvolvido por <a :href="`https://wa.me/5575988194912`" target="blank"><strong>ZNECODE</strong></a>.</span>
     </div>
   </footer>
 </template>
