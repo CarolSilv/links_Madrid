@@ -13,10 +13,8 @@ A partir começamos a nos perguntar de que forma poderíamos ajudar a solucionar
 
 Atualmente, o Front e o Backend estão hospedados na [Vercel](https://vercel.com/home).
 
-<img src='https://links-madrid.vercel.app/assets/logosvg-BVaO6EFA.svg' align=center>
 
-
-## Stack utilizada
+## Stacks utilizadas
 
 - [Vue 3](https://vuejs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -24,13 +22,13 @@ Atualmente, o Front e o Backend estão hospedados na [Vercel](https://vercel.com
 - [vue-tsc](https://github.com/vuejs/language-tools/tree/master/packages/tsc)
 
 
-
 ## Autores
 
 - [@caahthenerd](https://github.com/caahthenerd)
 - [@bl4nc](https://github.com/bl4nc) 
 
+<div  align=center>
+  <img src='https://links-madrid.vercel.app/assets/logosvg-BVaO6EFA.svg'>
+</div>
 
-
-
-🌟 © Desenvolvido em 2024 por ZNECODE
+<h5 align=center> 🌟 © Desenvolvido em 2024 por ZNECODE </h5>
