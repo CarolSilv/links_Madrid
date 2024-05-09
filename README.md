@@ -7,7 +7,7 @@ A maior problematica da questão é:
 
 ✘ O grupo do condomínio não permite propagandas nem anuncios de produtos;
 
-✘ Existem os grupos de vendas, mas boa parte dos moradores que lá se encontram estão para anunciar/vender o um detrminado produto ou serviço. 
+✘ Existem os grupos de vendas, mas boa parte dos moradores que lá se encontram estão para anunciar/vender o um detrminado produto ou serviço;
 
 A partir começamos a nos perguntar de que forma poderíamos ajudar a solucionar esta questão. A partir daí elaboramos o links Madrid que tem seu Frontend e seu Backend separados.
 
